@@ -322,6 +322,42 @@
             width: 280px;
             height: 280px;
             z-index: 10;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .owl:hover {
+            transform: scale(1.05);
+        }
+        
+        .owl.interactive {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .owl.blink .owl-eye-left,
+        .owl.blink .owl-eye-right {
+            height: 2px;
+            transition: height 0.15s ease;
+        }
+        
+        .owl.head-tilt .owl-head {
+            animation: headTilt 0.5s ease-in-out;
+        }
+        
+        .owl.wing-flap .owl-wing-left {
+            animation: wingFlapLeft 0.3s ease-in-out 2 !important;
+        }
+        
+        .owl.wing-flap .owl-wing-right {
+            animation: wingFlapRight 0.3s ease-in-out 2 !important;
+        }
+        
+        .owl.excited {
+            animation: excited 0.6s ease-in-out;
+        }
+        
+        .owl.rotate-head .owl-head {
+            animation: rotateHead 0.8s ease-in-out;
         }
         
         .owl-head {
@@ -400,6 +436,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            transition: transform 0.2s ease-out;
         }
         
         .owl-beak {
@@ -425,27 +462,68 @@
             transform: translateX(-50%);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             border: 3px solid var(--primary-color);
+            z-index: 6;
         }
         
         .owl-wing {
             position: absolute;
-            width: 90px;
-            height: 70px;
-            background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-            border-radius: 50%;
-            top: 170px;
-            border: 2px solid var(--primary-color);
+            width: 120px;
+            height: 100px;
+            background: linear-gradient(135deg, #374151 0%, #2d3748 50%, #1f2937 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: 150px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 5;
         }
         
         .owl-wing-left {
             left: 50%;
-            transform: translateX(-75px) rotate(-8deg);
+            transform: translateX(-90px) rotate(-12deg);
         }
         
         .owl-wing-right {
             right: 50%;
-            transform: translateX(75px) rotate(8deg);
+            transform: translateX(90px) rotate(12deg);
         }
+        
+        /* Wing feather details */
+        .owl-wing::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .owl-wing::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 15%;
+            width: 70%;
+            height: 50%;
+            background: linear-gradient(135deg, transparent 0%, rgba(37, 99, 235, 0.15) 50%, transparent 100%);
+            border-radius: 50%;
+        }
+        
+        /* Wing feather pattern */
+        .owl-wing-feather {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--primary-color) 0%, transparent 100%);
+            opacity: 0.3;
+        }
+        
+        .owl-wing-feather:nth-child(1) { top: 20%; left: 25%; transform: rotate(-10deg); }
+        .owl-wing-feather:nth-child(2) { top: 30%; left: 40%; transform: rotate(0deg); }
+        .owl-wing-feather:nth-child(3) { top: 40%; left: 55%; transform: rotate(10deg); }
+        .owl-wing-feather:nth-child(4) { top: 50%; left: 35%; transform: rotate(-5deg); }
+        .owl-wing-feather:nth-child(5) { top: 60%; left: 50%; transform: rotate(5deg); }
         
         /* Network diagram overlay on owl body */
         .owl-network-pattern {
@@ -465,6 +543,63 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes headTilt {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            25% { transform: translateX(-50%) rotate(-20deg); }
+            75% { transform: translateX(-50%) rotate(20deg); }
+        }
+        
+        @keyframes wingFlapLeft {
+            0%, 100% { transform: translateX(-90px) rotate(-12deg); }
+            50% { transform: translateX(-90px) rotate(-45deg) translateY(-10px); }
+        }
+        
+        @keyframes wingFlapRight {
+            0%, 100% { transform: translateX(90px) rotate(12deg); }
+            50% { transform: translateX(90px) rotate(45deg) translateY(-10px); }
+        }
+        
+        @keyframes wingIdleLeft {
+            0%, 100% { transform: translateX(-90px) translateY(0px) rotate(-12deg); }
+            50% { transform: translateX(-90px) translateY(-3px) rotate(-10deg); }
+        }
+        
+        @keyframes wingIdleRight {
+            0%, 100% { transform: translateX(90px) translateY(0px) rotate(12deg); }
+            50% { transform: translateX(90px) translateY(-3px) rotate(14deg); }
+        }
+        
+        .owl.interactive .owl-wing-left {
+            animation: wingIdleLeft 4s ease-in-out infinite;
+        }
+        
+        .owl.interactive .owl-wing-right {
+            animation: wingIdleRight 4s ease-in-out infinite 0.2s;
+        }
+        
+        @media (max-width: 768px) {
+            .owl.interactive .owl-wing-left {
+                animation: none;
+            }
+            
+            .owl.interactive .owl-wing-right {
+                animation: none;
+            }
+        }
+        
+        @keyframes excited {
+            0%, 100% { transform: scale(1) translateY(0); }
+            25% { transform: scale(1.1) translateY(-5px); }
+            50% { transform: scale(1.05) translateY(-10px); }
+            75% { transform: scale(1.1) translateY(-5px); }
+        }
+        
+        @keyframes rotateHead {
+            0% { transform: translateX(-50%) rotate(0deg); }
+            25% { transform: translateX(-50%) rotate(360deg); }
+            100% { transform: translateX(-50%) rotate(360deg); }
         }
         
         /* Sections */
@@ -816,6 +951,20 @@
                 width: 8px;
                 height: 8px;
             }
+            
+            .owl-wing {
+                width: 80px;
+                height: 70px;
+                top: 120px;
+            }
+            
+            .owl-wing-left {
+                transform: translateX(-70px) rotate(-12deg);
+            }
+            
+            .owl-wing-right {
+                transform: translateX(70px) rotate(12deg);
+            }
         }
         
         @media (max-width: 480px) {
@@ -845,6 +994,43 @@
                 font-size: 0.95rem;
                 line-height: 1.5;
                 margin-bottom: 1rem;
+            }
+            
+            .owl-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .owl {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .owl-head {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .tech-icon {
+                font-size: 1rem;
+            }
+            
+            .network-node {
+                width: 6px;
+                height: 6px;
+            }
+            
+            .owl-wing {
+                width: 70px;
+                height: 60px;
+            }
+            
+            .owl-wing-left {
+                transform: translateX(-60px) rotate(-12deg);
+            }
+            
+            .owl-wing-right {
+                transform: translateX(60px) rotate(12deg);
             }
         }
         
@@ -934,8 +1120,20 @@
                         </div>
                         <div class="owl-body">
                             <div class="owl-network-pattern"></div>
-                            <div class="owl-wing owl-wing-left"></div>
-                            <div class="owl-wing owl-wing-right"></div>
+                            <div class="owl-wing owl-wing-left">
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                            </div>
+                            <div class="owl-wing owl-wing-right">
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                                <div class="owl-wing-feather"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1430,6 +1628,149 @@
             }
         }
 
+        // Owl Mascot Interactions
+        function initOwlInteractions() {
+            const owl = document.querySelector('.owl');
+            if (!owl) return;
+            
+            const owlHead = document.querySelector('.owl-head');
+            const pupils = document.querySelectorAll('.owl-pupil');
+            const owlEyes = document.querySelectorAll('.owl-eye-left, .owl-eye-right');
+            
+            // Add interactive class
+            owl.classList.add('interactive');
+            
+            // Eye tracking - follow mouse cursor
+            let mouseX = 0, mouseY = 0;
+            let owlRect = null;
+            
+            function updateOwlRect() {
+                owlRect = owl.getBoundingClientRect();
+            }
+            
+            function trackMouse(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                updateOwlRect();
+                
+                if (owlRect) {
+                    const owlCenterX = owlRect.left + owlRect.width / 2;
+                    const owlCenterY = owlRect.top + owlRect.height / 2;
+                    
+                    pupils.forEach((pupil, index) => {
+                        const eye = pupil.parentElement;
+                        const eyeRect = eye.getBoundingClientRect();
+                        const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                        const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+                        
+                        const deltaX = mouseX - eyeCenterX;
+                        const deltaY = mouseY - eyeCenterY;
+                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                        const maxDistance = 8; // Max pupil movement
+                        
+                        const angle = Math.atan2(deltaY, deltaX);
+                        const moveDistance = Math.min(distance / 10, maxDistance);
+                        
+                        const translateX = Math.cos(angle) * moveDistance;
+                        const translateY = Math.sin(angle) * moveDistance;
+                        
+                        pupil.style.transform = `translate(calc(-50% + ${translateX}px), calc(-50% + ${translateY}px))`;
+                    });
+                }
+            }
+            
+            document.addEventListener('mousemove', trackMouse);
+            window.addEventListener('resize', updateOwlRect);
+            updateOwlRect();
+            
+            // Random blinking
+            function randomBlink() {
+                owl.classList.add('blink');
+                setTimeout(() => {
+                    owl.classList.remove('blink');
+                }, 150);
+            }
+            
+            // Random interesting behaviors
+            const behaviors = [
+                () => {
+                    owl.classList.add('head-tilt');
+                    setTimeout(() => owl.classList.remove('head-tilt'), 500);
+                },
+                () => {
+                    owl.classList.add('wing-flap');
+                    setTimeout(() => owl.classList.remove('wing-flap'), 600);
+                },
+                () => {
+                    owl.classList.add('excited');
+                    setTimeout(() => owl.classList.remove('excited'), 600);
+                },
+                () => {
+                    owl.classList.add('rotate-head');
+                    setTimeout(() => owl.classList.remove('rotate-head'), 800);
+                }
+            ];
+            
+            function randomBehavior() {
+                if (Math.random() > 0.7) { // 30% chance
+                    const behavior = behaviors[Math.floor(Math.random() * behaviors.length)];
+                    behavior();
+                }
+            }
+            
+            // Blink every 2-4 seconds
+            setInterval(() => {
+                if (Math.random() > 0.3) {
+                    randomBlink();
+                }
+            }, 2000);
+            
+            // Random behaviors every 5-10 seconds
+            setInterval(() => {
+                randomBehavior();
+            }, 5000);
+            
+            // Click interaction
+            owl.addEventListener('click', () => {
+                owl.classList.add('excited');
+                setTimeout(() => {
+                    owl.classList.remove('excited');
+                    // Trigger a random behavior after excitement
+                    setTimeout(() => {
+                        const behavior = behaviors[Math.floor(Math.random() * behaviors.length)];
+                        behavior();
+                    }, 100);
+                }, 600);
+            });
+            
+            // Hover interaction
+            owl.addEventListener('mouseenter', () => {
+                owl.classList.add('excited');
+            });
+            
+            owl.addEventListener('mouseleave', () => {
+                owl.classList.remove('excited');
+            });
+            
+            // Scroll-based interaction - owl looks up when scrolling down
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    // Scrolling down - owl looks up
+                    pupils.forEach(pupil => {
+                        pupil.style.transform = 'translate(-50%, calc(-50% - 5px))';
+                    });
+                } else if (currentScrollY < lastScrollY) {
+                    // Scrolling up - reset
+                    pupils.forEach(pupil => {
+                        pupil.style.transform = 'translate(-50%, -50%)';
+                    });
+                }
+                lastScrollY = currentScrollY;
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Language
@@ -1452,6 +1793,7 @@
             initSkillBars();
             initSmoothScroll();
             initContactForm();
+            initOwlInteractions();
         });
     </script>
 </body>
