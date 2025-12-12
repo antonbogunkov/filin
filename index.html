@@ -745,10 +745,31 @@
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text {
+                text-align: center;
+                padding: 0 1rem;
+                width: 100%;
+                max-width: 100%;
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 0.75rem;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
             }
             
             .nav-links {
@@ -794,6 +815,36 @@
             .network-node {
                 width: 8px;
                 height: 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 1rem 2rem;
+            }
+            
+            .hero-content {
+                gap: 1.5rem;
+            }
+            
+            .hero-text {
+                padding: 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-text p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
             }
         }
         
