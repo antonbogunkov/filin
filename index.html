@@ -237,6 +237,7 @@
             align-items: center;
             width: 400px;
             height: 400px;
+            overflow: visible;
         }
         
         /* Network Background Elements */
@@ -324,6 +325,7 @@
             z-index: 10;
             cursor: pointer;
             transition: transform 0.3s ease;
+            overflow: visible;
         }
         
         .owl:hover {
@@ -463,28 +465,81 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             border: 3px solid var(--primary-color);
             z-index: 6;
+            overflow: visible;
         }
         
         .owl-wing {
             position: absolute;
-            width: 120px;
-            height: 100px;
+            width: 150px;
+            height: 110px;
             background: linear-gradient(135deg, #374151 0%, #2d3748 50%, #1f2937 100%);
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            top: 150px;
+            top: 165px;
             border: 3px solid var(--primary-color);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(0, 0, 0, 0.2);
             z-index: 5;
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: block !important;
         }
         
         .owl-wing-left {
             left: 50%;
-            transform: translateX(-90px) rotate(-12deg);
+            transform: translateX(-110px) rotate(-12deg);
         }
         
         .owl-wing-right {
             right: 50%;
-            transform: translateX(90px) rotate(12deg);
+            transform: translateX(110px) rotate(12deg);
+        }
+        
+        /* Owl Legs */
+        .owl-leg {
+            position: absolute;
+            width: 30px;
+            height: 45px;
+            background: linear-gradient(180deg, #4a5568 0%, #374151 50%, #2d3748 100%);
+            border-radius: 15px 15px 12px 12px;
+            top: 290px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+        
+        .owl-leg::before {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 11px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .owl-leg::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 7px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border-radius: 50%;
+        }
+        
+        .owl-leg-left {
+            left: 50%;
+            transform: translateX(-45px);
+        }
+        
+        .owl-leg-right {
+            right: 50%;
+            transform: translateX(45px);
         }
         
         /* Wing feather details */
@@ -552,31 +607,33 @@
         }
         
         @keyframes wingFlapLeft {
-            0%, 100% { transform: translateX(-90px) rotate(-12deg); }
-            50% { transform: translateX(-90px) rotate(-45deg) translateY(-10px); }
+            0%, 100% { transform: translateX(-110px) rotate(-12deg); }
+            50% { transform: translateX(-110px) rotate(-45deg) translateY(-10px); }
         }
         
         @keyframes wingFlapRight {
-            0%, 100% { transform: translateX(90px) rotate(12deg); }
-            50% { transform: translateX(90px) rotate(45deg) translateY(-10px); }
+            0%, 100% { transform: translateX(110px) rotate(12deg); }
+            50% { transform: translateX(110px) rotate(45deg) translateY(-10px); }
         }
         
         @keyframes wingIdleLeft {
-            0%, 100% { transform: translateX(-90px) translateY(0px) rotate(-12deg); }
-            50% { transform: translateX(-90px) translateY(-3px) rotate(-10deg); }
+            0%, 100% { transform: translateX(-110px) translateY(0px) rotate(-12deg); }
+            25% { transform: translateX(-110px) translateY(-8px) rotate(-8deg); }
+            75% { transform: translateX(-110px) translateY(-5px) rotate(-16deg); }
         }
         
         @keyframes wingIdleRight {
-            0%, 100% { transform: translateX(90px) translateY(0px) rotate(12deg); }
-            50% { transform: translateX(90px) translateY(-3px) rotate(14deg); }
+            0%, 100% { transform: translateX(110px) translateY(0px) rotate(12deg); }
+            25% { transform: translateX(110px) translateY(-8px) rotate(16deg); }
+            75% { transform: translateX(110px) translateY(-5px) rotate(8deg); }
         }
         
         .owl.interactive .owl-wing-left {
-            animation: wingIdleLeft 4s ease-in-out infinite;
+            animation: wingIdleLeft 3s ease-in-out infinite;
         }
         
         .owl.interactive .owl-wing-right {
-            animation: wingIdleRight 4s ease-in-out infinite 0.2s;
+            animation: wingIdleRight 3s ease-in-out infinite 0.3s;
         }
         
         @media (max-width: 768px) {
@@ -881,6 +938,7 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                justify-items: center;
             }
             
             .hero-text {
@@ -888,6 +946,10 @@
                 padding: 0 1rem;
                 width: 100%;
                 max-width: 100%;
+            }
+            
+            .owl-container {
+                margin: 0 auto;
             }
             
             .hero-text h1 {
@@ -929,18 +991,70 @@
             }
             
             .owl-container {
-                width: 300px;
-                height: 300px;
+                width: 350px;
+                height: 350px;
             }
             
             .owl {
-                width: 200px;
-                height: 200px;
+                width: 250px;
+                height: 250px;
             }
             
             .owl-head {
-                width: 150px;
-                height: 150px;
+                width: 161px;
+                height: 161px;
+            }
+            
+            .owl-face {
+                width: 125px;
+                height: 107px;
+                top: 31px;
+            }
+            
+            .owl-ear-left, .owl-ear-right {
+                width: 45px;
+                height: 63px;
+                top: -13px;
+            }
+            
+            .owl-ear-left {
+                left: 22px;
+            }
+            
+            .owl-ear-right {
+                right: 22px;
+            }
+            
+            .owl-eye-left, .owl-eye-right {
+                width: 36px;
+                height: 36px;
+                top: 58px;
+                border-width: 2px;
+            }
+            
+            .owl-eye-left {
+                transform: translateX(-49px);
+            }
+            
+            .owl-eye-right {
+                transform: translateX(49px);
+            }
+            
+            .owl-pupil {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .owl-beak {
+                width: 25px;
+                height: 16px;
+                top: 94px;
+            }
+            
+            .owl-body {
+                width: 143px;
+                height: 116px;
+                top: 143px;
             }
             
             .tech-icon {
@@ -953,17 +1067,48 @@
             }
             
             .owl-wing {
-                width: 80px;
-                height: 70px;
-                top: 120px;
+                width: 107px;
+                height: 89px;
+                top: 147px;
             }
             
             .owl-wing-left {
-                transform: translateX(-70px) rotate(-12deg);
+                transform: translateX(-80px) rotate(-12deg);
             }
             
             .owl-wing-right {
-                transform: translateX(70px) rotate(12deg);
+                transform: translateX(80px) rotate(12deg);
+            }
+            
+            .owl-wing-feather {
+                height: 25px;
+            }
+            
+            .owl-leg {
+                width: 27px;
+                height: 40px;
+                top: 259px;
+                border-radius: 13px 13px 10px 10px;
+            }
+            
+            .owl-leg::before {
+                width: 27px;
+                height: 10px;
+                bottom: -6px;
+            }
+            
+            .owl-leg::after {
+                width: 20px;
+                height: 6px;
+                bottom: -4px;
+            }
+            
+            .owl-leg-left {
+                transform: translateX(-40px);
+            }
+            
+            .owl-leg-right {
+                transform: translateX(40px);
             }
         }
         
@@ -974,10 +1119,15 @@
             
             .hero-content {
                 gap: 1.5rem;
+                justify-items: center;
             }
             
             .hero-text {
                 padding: 0;
+            }
+            
+            .owl-container {
+                margin: 0 auto;
             }
             
             .hero-text h1 {
@@ -997,18 +1147,70 @@
             }
             
             .owl-container {
-                width: 240px;
-                height: 240px;
+                width: 320px;
+                height: 320px;
             }
             
             .owl {
-                width: 160px;
-                height: 160px;
+                width: 220px;
+                height: 220px;
             }
             
             .owl-head {
-                width: 120px;
-                height: 120px;
+                width: 141px;
+                height: 141px;
+            }
+            
+            .owl-face {
+                width: 110px;
+                height: 94px;
+                top: 28px;
+            }
+            
+            .owl-ear-left, .owl-ear-right {
+                width: 39px;
+                height: 55px;
+                top: -12px;
+            }
+            
+            .owl-ear-left {
+                left: 19px;
+            }
+            
+            .owl-ear-right {
+                right: 19px;
+            }
+            
+            .owl-eye-left, .owl-eye-right {
+                width: 31px;
+                height: 31px;
+                top: 51px;
+                border-width: 2px;
+            }
+            
+            .owl-eye-left {
+                transform: translateX(-43px);
+            }
+            
+            .owl-eye-right {
+                transform: translateX(43px);
+            }
+            
+            .owl-pupil {
+                width: 14px;
+                height: 14px;
+            }
+            
+            .owl-beak {
+                width: 22px;
+                height: 14px;
+                top: 83px;
+            }
+            
+            .owl-body {
+                width: 126px;
+                height: 102px;
+                top: 126px;
             }
             
             .tech-icon {
@@ -1021,16 +1223,48 @@
             }
             
             .owl-wing {
-                width: 70px;
-                height: 60px;
+                width: 94px;
+                height: 79px;
+                top: 130px;
             }
             
             .owl-wing-left {
-                transform: translateX(-60px) rotate(-12deg);
+                transform: translateX(-70px) rotate(-12deg);
             }
             
             .owl-wing-right {
-                transform: translateX(60px) rotate(12deg);
+                transform: translateX(70px) rotate(12deg);
+            }
+            
+            .owl-wing-feather {
+                height: 22px;
+            }
+            
+            .owl-leg {
+                width: 24px;
+                height: 35px;
+                top: 228px;
+                border-radius: 12px 12px 9px 9px;
+            }
+            
+            .owl-leg::before {
+                width: 24px;
+                height: 9px;
+                bottom: -5px;
+            }
+            
+            .owl-leg::after {
+                width: 18px;
+                height: 6px;
+                bottom: -4px;
+            }
+            
+            .owl-leg-left {
+                transform: translateX(-35px);
+            }
+            
+            .owl-leg-right {
+                transform: translateX(35px);
             }
         }
         
@@ -1120,21 +1354,23 @@
                         </div>
                         <div class="owl-body">
                             <div class="owl-network-pattern"></div>
-                            <div class="owl-wing owl-wing-left">
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                            </div>
-                            <div class="owl-wing owl-wing-right">
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                                <div class="owl-wing-feather"></div>
-                            </div>
                         </div>
+                        <div class="owl-wing owl-wing-left">
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                        </div>
+                        <div class="owl-wing owl-wing-right">
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                            <div class="owl-wing-feather"></div>
+                        </div>
+                        <div class="owl-leg owl-leg-left"></div>
+                        <div class="owl-leg owl-leg-right"></div>
                     </div>
                 </div>
             </div>
@@ -1798,4 +2034,3 @@
     </script>
 </body>
 </html>
-
