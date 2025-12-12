@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Senior System Administrator - Windows Systems, Networks, Cisco Specialist">
+    <meta name="author" content="Senior System Administrator">
+    <title>Senior System Administrator - Visit Card</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='headGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a5568'/%3E%3Cstop offset='100%25' stop-color='%232d3748'/%3E%3C/linearGradient%3E%3ClinearGradient id='faceGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23718096'/%3E%3Cstop offset='100%25' stop-color='%234a5568'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='%23f9fafb'/%3E%3Ccircle cx='20' cy='20' r='3' fill='%232563eb' opacity='0.6'/%3E%3Ccircle cx='80' cy='25' r='3' fill='%232563eb' opacity='0.6'/%3E%3Ccircle cx='15' cy='80' r='3' fill='%232563eb' opacity='0.6'/%3E%3Ccircle cx='85' cy='75' r='3' fill='%232563eb' opacity='0.6'/%3E%3Cline x1='20' y1='20' x2='50' y2='50' stroke='%232563eb' stroke-width='0.5' opacity='0.3'/%3E%3Cline x1='80' y1='25' x2='50' y2='50' stroke='%232563eb' stroke-width='0.5' opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='38' fill='url(%23headGrad)' stroke='%232563eb' stroke-width='2'/%3E%3Cellipse cx='50' cy='50' rx='30' ry='26' fill='url(%23faceGrad)'/%3E%3Ccircle cx='42' cy='48' r='7' fill='%23000' stroke='%233b82f6' stroke-width='1.5'/%3E%3Ccircle cx='58' cy='48' r='7' fill='%23000' stroke='%233b82f6' stroke-width='1.5'/%3E%3Ccircle cx='42' cy='48' r='3' fill='%23fff'/%3E%3Ccircle cx='58' cy='48' r='3' fill='%23fff'/%3E%3Cpath d='M 38 58 Q 50 62 62 58' stroke='%23f59e0b' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M 50 58 L 46 66 L 54 66 Z' fill='%23f59e0b'/%3E%3Crect x='45' y='52' width='10' height='8' fill='%232563eb' opacity='0.2'/%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --shadow: rgba(0, 0, 0, 0.1);
+            --border-color: #e5e7eb;
+        }
+        
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #2563eb;
+            --accent-color: #60a5fa;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: rgba(31, 41, 55, 0.8);
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border-color: #374151;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+        
+        /* Parallax Container */
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            opacity: 0.05;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            padding: 0.25rem;
+            border-radius: 8px;
+        }
+        
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 2rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        /* Owl Mascot - Professional Style */
+        .owl-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* Network Background Elements */
+        .network-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+        
+        .network-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .network-node:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .network-node:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.3s; }
+        .network-node:nth-child(3) { bottom: 25%; left: 10%; animation-delay: 0.6s; }
+        .network-node:nth-child(4) { bottom: 15%; right: 15%; animation-delay: 0.9s; }
+        .network-node:nth-child(5) { top: 50%; left: 5%; animation-delay: 1.2s; }
+        .network-node:nth-child(6) { top: 50%; right: 5%; animation-delay: 1.5s; }
+        
+        .network-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            opacity: 0.4;
+            transform-origin: left center;
+        }
+        
+        .network-line-1 {
+            top: 15%;
+            left: 20%;
+            width: 60%;
+            transform: rotate(15deg);
+        }
+        
+        .network-line-2 {
+            bottom: 20%;
+            left: 15%;
+            width: 70%;
+            transform: rotate(-10deg);
+        }
+        
+        .network-line-3 {
+            top: 50%;
+            left: 10%;
+            width: 80%;
+            transform: rotate(0deg);
+        }
+        
+        /* Computer/Server Icons */
+        .tech-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            opacity: 0.5;
+            animation: techPulse 3s ease-in-out infinite;
+        }
+        
+        .tech-icon:nth-child(7) { top: 5%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+        .tech-icon:nth-child(8) { top: 50%; left: 0; animation-delay: 1s; }
+        .tech-icon:nth-child(9) { top: 50%; right: 0; animation-delay: 2s; }
+        .tech-icon:nth-child(10) { bottom: 5%; left: 50%; transform: translateX(-50%); animation-delay: 1.5s; }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        @keyframes techPulse {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 0.7; transform: translateY(-5px); }
+        }
+        
+        .owl {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            z-index: 10;
+        }
+        
+        .owl-head {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .owl-face {
+            position: absolute;
+            width: 140px;
+            height: 120px;
+            background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .owl-ear-left, .owl-ear-right {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            border-radius: 50%;
+            top: -15px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .owl-ear-left {
+            left: 25px;
+            transform: rotate(-15deg);
+        }
+        
+        .owl-ear-right {
+            right: 25px;
+            transform: rotate(15deg);
+        }
+        
+        .owl-eye-left, .owl-eye-right {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 50%;
+            top: 65px;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+        .owl-eye-left {
+            left: 50%;
+            transform: translateX(-55px);
+        }
+        
+        .owl-eye-right {
+            right: 50%;
+            transform: translateX(55px);
+        }
+        
+        .owl-pupil {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+        
+        .owl-beak {
+            position: absolute;
+            width: 28px;
+            height: 18px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 0 0 50% 50%;
+            top: 105px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .owl-body {
+            position: absolute;
+            width: 160px;
+            height: 130px;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            border-radius: 50%;
+            top: 160px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .owl-wing {
+            position: absolute;
+            width: 90px;
+            height: 70px;
+            background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+            border-radius: 50%;
+            top: 170px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .owl-wing-left {
+            left: 50%;
+            transform: translateX(-75px) rotate(-8deg);
+        }
+        
+        .owl-wing-right {
+            right: 50%;
+            transform: translateX(75px) rotate(8deg);
+        }
+        
+        /* Network diagram overlay on owl body */
+        .owl-network-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.2;
+            background-image: 
+                linear-gradient(90deg, var(--primary-color) 1px, transparent 1px),
+                linear-gradient(var(--primary-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-radius: 50%;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+        
+        /* About Section */
+        .about-content {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1s ease;
+            animation: progressAnimation 1s ease forwards;
+        }
+        
+        @keyframes progressAnimation {
+            from { width: 0; }
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+            padding: 2rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 4px solid var(--bg-primary);
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-item .date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .cert-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-10px) rotate(5deg);
+        }
+        
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+            
+            .timeline-item::before {
+                left: -30px !important;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .owl-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .owl {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .owl-head {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .tech-icon {
+                font-size: 1.2rem;
+            }
+            
+            .network-node {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-owl"></i>
+                <span data-translate="logo">Filin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" data-translate="nav-about">About</a></li>
+                <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
+                <li><a href="#experience" data-translate="nav-experience">Experience</a></li>
+                <li><a href="#certifications" data-translate="nav-certifications">Certifications</a></li>
+                <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="tt">TT</button>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero parallax-container">
+            <div class="parallax-bg"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 data-translate="hero-title">Senior System Administrator</h1>
+                    <p class="subtitle" data-translate="hero-subtitle">Windows Systems • Networks • Cisco</p>
+                    <p data-translate="hero-description">Experienced IT professional specializing in Windows infrastructure, network administration, and Cisco technologies. Dedicated to maintaining robust, secure, and efficient systems.</p>
+                </div>
+                <div class="owl-container">
+                    <!-- Network Background Elements -->
+                    <div class="network-bg">
+                        <div class="network-node"></div>
+                        <div class="network-node"></div>
+                        <div class="network-node"></div>
+                        <div class="network-node"></div>
+                        <div class="network-node"></div>
+                        <div class="network-node"></div>
+                        <div class="network-line network-line-1"></div>
+                        <div class="network-line network-line-2"></div>
+                        <div class="network-line network-line-3"></div>
+                    </div>
+                    
+                    <!-- Tech Icons -->
+                    <i class="fas fa-server tech-icon"></i>
+                    <i class="fas fa-network-wired tech-icon"></i>
+                    <i class="fas fa-router tech-icon"></i>
+                    <i class="fas fa-desktop tech-icon"></i>
+                    
+                    <!-- Professional Owl Mascot -->
+                    <div class="owl">
+                        <div class="owl-head">
+                            <div class="owl-ear-left"></div>
+                            <div class="owl-ear-right"></div>
+                            <div class="owl-face">
+                                <div class="owl-eye-left">
+                                    <div class="owl-pupil"></div>
+                                </div>
+                                <div class="owl-eye-right">
+                                    <div class="owl-pupil"></div>
+                                </div>
+                                <div class="owl-beak"></div>
+                            </div>
+                        </div>
+                        <div class="owl-body">
+                            <div class="owl-network-pattern"></div>
+                            <div class="owl-wing owl-wing-left"></div>
+                            <div class="owl-wing owl-wing-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="parallax-container">
+            <div class="parallax-bg"></div>
+            <h2 class="section-title" data-translate="about-title">About Me</h2>
+            <div class="about-content fade-in">
+                <p data-translate="about-text">With extensive experience in system administration, I specialize in Windows Server environments, network infrastructure, and Cisco technologies. My expertise includes designing, implementing, and maintaining complex IT systems that ensure high availability, security, and performance.</p>
+                <p data-translate="about-text2">I am passionate about staying current with the latest technologies and best practices in IT infrastructure management, always seeking to optimize systems for efficiency and reliability.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="parallax-container">
+            <div class="parallax-bg"></div>
+            <h2 class="section-title" data-translate="skills-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-server"></i> <span data-translate="skills-windows">Windows Systems</span></h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-windows-server">Windows Server</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-active-directory">Active Directory</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-powershell">PowerShell</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-network-wired"></i> <span data-translate="skills-networks">Networks</span></h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-network-design">Network Design</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-troubleshooting">Troubleshooting</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-security">Network Security</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-router"></i> <span data-translate="skills-cisco">Cisco</span></h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-routing">Routing & Switching</span>
+                            <span>93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="93"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-firewall">Firewall Configuration</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="87"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-translate="skill-voip">VoIP & Collaboration</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="82"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="parallax-container">
+            <div class="parallax-bg"></div>
+            <h2 class="section-title" data-translate="experience-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <h3 data-translate="exp-title-1">Senior System Administrator</h3>
+                    <div class="date" data-translate="exp-date-1">2020 - Present</div>
+                    <p data-translate="exp-desc-1">Leading infrastructure projects, managing Windows Server environments, and implementing network solutions. Responsible for system optimization and security enhancements.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h3 data-translate="exp-title-2">System Administrator</h3>
+                    <div class="date" data-translate="exp-date-2">2015 - 2020</div>
+                    <p data-translate="exp-desc-2">Maintained Windows Server infrastructure, configured Active Directory, and managed network equipment. Implemented backup and disaster recovery solutions.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h3 data-translate="exp-title-3">Network Administrator</h3>
+                    <div class="date" data-translate="exp-date-3">2012 - 2015</div>
+                    <p data-translate="exp-desc-3">Configured and maintained Cisco network infrastructure, implemented routing protocols, and ensured network security and performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="parallax-container">
+            <div class="parallax-bg"></div>
+            <h2 class="section-title" data-translate="certifications-title">Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 data-translate="cert-ccna">CCNA</h3>
+                    <p data-translate="cert-ccna-desc">Cisco Certified Network Associate</p>
+                </div>
+                <div class="cert-card fade-in">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 data-translate="cert-mcse">MCSE</h3>
+                    <p data-translate="cert-mcse-desc">Microsoft Certified Solutions Expert</p>
+                </div>
+                <div class="cert-card fade-in">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 data-translate="cert-ccnp">CCNP</h3>
+                    <p data-translate="cert-ccnp-desc">Cisco Certified Network Professional</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="parallax-container">
+            <div class="parallax-bg"></div>
+            <h2 class="section-title" data-translate="contact-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3 data-translate="contact-info-title">Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>admin@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-translate="contact-location">Available Worldwide</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/admin</span>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3 data-translate="contact-form-title">Send Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-translate="form-name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="form-email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-translate="form-message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-translate="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-translate="footer-text">&copy; 2024 Senior System Administrator. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                'logo': 'Filin',
+                'nav-about': 'About',
+                'nav-skills': 'Skills',
+                'nav-experience': 'Experience',
+                'nav-certifications': 'Certifications',
+                'nav-contact': 'Contact',
+                'hero-title': 'Senior System Administrator',
+                'hero-subtitle': 'Windows Systems • Networks • Cisco',
+                'hero-description': 'Experienced IT professional specializing in Windows infrastructure, network administration, and Cisco technologies. Dedicated to maintaining robust, secure, and efficient systems.',
+                'about-title': 'About Me',
+                'about-text': 'With extensive experience in system administration, I specialize in Windows Server environments, network infrastructure, and Cisco technologies. My expertise includes designing, implementing, and maintaining complex IT systems that ensure high availability, security, and performance.',
+                'about-text2': 'I am passionate about staying current with the latest technologies and best practices in IT infrastructure management, always seeking to optimize systems for efficiency and reliability.',
+                'skills-title': 'Skills',
+                'skills-windows': 'Windows Systems',
+                'skills-networks': 'Networks',
+                'skills-cisco': 'Cisco',
+                'skill-windows-server': 'Windows Server',
+                'skill-active-directory': 'Active Directory',
+                'skill-powershell': 'PowerShell',
+                'skill-network-design': 'Network Design',
+                'skill-troubleshooting': 'Troubleshooting',
+                'skill-security': 'Network Security',
+                'skill-routing': 'Routing & Switching',
+                'skill-firewall': 'Firewall Configuration',
+                'skill-voip': 'VoIP & Collaboration',
+                'experience-title': 'Experience',
+                'exp-title-1': 'Senior System Administrator',
+                'exp-date-1': '2020 - Present',
+                'exp-desc-1': 'Leading infrastructure projects, managing Windows Server environments, and implementing network solutions. Responsible for system optimization and security enhancements.',
+                'exp-title-2': 'System Administrator',
+                'exp-date-2': '2015 - 2020',
+                'exp-desc-2': 'Maintained Windows Server infrastructure, configured Active Directory, and managed network equipment. Implemented backup and disaster recovery solutions.',
+                'exp-title-3': 'Network Administrator',
+                'exp-date-3': '2012 - 2015',
+                'exp-desc-3': 'Configured and maintained Cisco network infrastructure, implemented routing protocols, and ensured network security and performance.',
+                'certifications-title': 'Certifications',
+                'cert-ccna': 'CCNA',
+                'cert-ccna-desc': 'Cisco Certified Network Associate',
+                'cert-mcse': 'MCSE',
+                'cert-mcse-desc': 'Microsoft Certified Solutions Expert',
+                'cert-ccnp': 'CCNP',
+                'cert-ccnp-desc': 'Cisco Certified Network Professional',
+                'contact-title': 'Contact',
+                'contact-info-title': 'Get in Touch',
+                'contact-location': 'Available Worldwide',
+                'contact-form-title': 'Send Message',
+                'form-name': 'Name',
+                'form-email': 'Email',
+                'form-message': 'Message',
+                'form-submit': 'Send Message',
+                'footer-text': '© 2024 Senior System Administrator. All rights reserved.'
+            },
+            ru: {
+                'logo': 'Филин',
+                'nav-about': 'О себе',
+                'nav-skills': 'Навыки',
+                'nav-experience': 'Опыт',
+                'nav-certifications': 'Сертификаты',
+                'nav-contact': 'Контакты',
+                'hero-title': 'Старший Системный Администратор',
+                'hero-subtitle': 'Windows Системы • Сети • Cisco',
+                'hero-description': 'Опытный IT-специалист, специализирующийся на инфраструктуре Windows, сетевом администрировании и технологиях Cisco. Посвящен поддержанию надежных, безопасных и эффективных систем.',
+                'about-title': 'О себе',
+                'about-text': 'Имея обширный опыт в системном администрировании, я специализируюсь на средах Windows Server, сетевой инфраструктуре и технологиях Cisco. Моя экспертиза включает проектирование, внедрение и поддержку сложных IT-систем, обеспечивающих высокую доступность, безопасность и производительность.',
+                'about-text2': 'Я увлечен тем, чтобы оставаться в курсе последних технологий и лучших практик в управлении IT-инфраструктурой, всегда стремясь оптимизировать системы для эффективности и надежности.',
+                'skills-title': 'Навыки',
+                'skills-windows': 'Windows Системы',
+                'skills-networks': 'Сети',
+                'skills-cisco': 'Cisco',
+                'skill-windows-server': 'Windows Server',
+                'skill-active-directory': 'Active Directory',
+                'skill-powershell': 'PowerShell',
+                'skill-network-design': 'Проектирование сетей',
+                'skill-troubleshooting': 'Устранение неполадок',
+                'skill-security': 'Сетевая безопасность',
+                'skill-routing': 'Маршрутизация и коммутация',
+                'skill-firewall': 'Настройка файрвола',
+                'skill-voip': 'VoIP и совместная работа',
+                'experience-title': 'Опыт работы',
+                'exp-title-1': 'Старший Системный Администратор',
+                'exp-date-1': '2020 - Настоящее время',
+                'exp-desc-1': 'Руководство инфраструктурными проектами, управление средами Windows Server и внедрение сетевых решений. Ответственность за оптимизацию систем и улучшение безопасности.',
+                'exp-title-2': 'Системный Администратор',
+                'exp-date-2': '2015 - 2020',
+                'exp-desc-2': 'Поддержка инфраструктуры Windows Server, настройка Active Directory и управление сетевым оборудованием. Внедрение решений резервного копирования и аварийного восстановления.',
+                'exp-title-3': 'Сетевой Администратор',
+                'exp-date-3': '2012 - 2015',
+                'exp-desc-3': 'Настройка и поддержка сетевой инфраструктуры Cisco, внедрение протоколов маршрутизации и обеспечение сетевой безопасности и производительности.',
+                'certifications-title': 'Сертификаты',
+                'cert-ccna': 'CCNA',
+                'cert-ccna-desc': 'Cisco Certified Network Associate',
+                'cert-mcse': 'MCSE',
+                'cert-mcse-desc': 'Microsoft Certified Solutions Expert',
+                'cert-ccnp': 'CCNP',
+                'cert-ccnp-desc': 'Cisco Certified Network Professional',
+                'contact-title': 'Контакты',
+                'contact-info-title': 'Свяжитесь со мной',
+                'contact-location': 'Доступен по всему миру',
+                'contact-form-title': 'Отправить сообщение',
+                'form-name': 'Имя',
+                'form-email': 'Email',
+                'form-message': 'Сообщение',
+                'form-submit': 'Отправить сообщение',
+                'footer-text': '© 2024 Старший Системный Администратор. Все права защищены.'
+            },
+            tt: {
+                'logo': 'Филин',
+                'nav-about': 'Үзем турында',
+                'nav-skills': 'Күнеллерем',
+                'nav-experience': 'Тәҗрибә',
+                'nav-certifications': 'Сертификатлар',
+                'nav-contact': 'Контактлар',
+                'hero-title': 'Өлкән Система Администраторы',
+                'hero-subtitle': 'Windows Системалар • Челтәрләр • Cisco',
+                'hero-description': 'Windows инфраструктурасы, челтәр идарәсе һәм Cisco технологияләре буенча махсуслашкан тәҗрибәле IT-белгеч. Надеждалы, имин һәм нәтиҗәле системаларны саклауга багышланган.',
+                'about-title': 'Үзем турында',
+                'about-text': 'Система идарәсе буенча киң тәҗрибәгә ия булып, мин Windows Server мохитләре, челтәр инфраструктурасы һәм Cisco технологияләре буенча махсуслашам. Минем белгечлеге югары мөмкинлек, иминлек һәм эшчәнлекне тәэмин итүче катлаулы IT-системаларны проектлау, кертү һәм саклауны үз эченә ала.',
+                'about-text2': 'Мин IT-инфраструктура идарәсендә иң соңгы технологияләр һәм иң яхшы практикалар белән танышуга, системаларны нәтиҗәлелек һәм ышанычлылык өчен үзгәртеп коруга омтыламын.',
+                'skills-title': 'Күнеллерем',
+                'skills-windows': 'Windows Системалар',
+                'skills-networks': 'Челтәрләр',
+                'skills-cisco': 'Cisco',
+                'skill-windows-server': 'Windows Server',
+                'skill-active-directory': 'Active Directory',
+                'skill-powershell': 'PowerShell',
+                'skill-network-design': 'Челтәр проектлау',
+                'skill-troubleshooting': 'Проблемаларны хәл итү',
+                'skill-security': 'Челтәр иминлеге',
+                'skill-routing': 'Маршрутизация һәм коммутация',
+                'skill-firewall': 'Файрвол көйләү',
+                'skill-voip': 'VoIP һәм хезмәттәшлек',
+                'experience-title': 'Эш тәҗрибәсе',
+                'exp-title-1': 'Өлкән Система Администраторы',
+                'exp-date-1': '2020 - Хәзерге вакыт',
+                'exp-desc-1': 'Инфраструктура проектларын җитәкләү, Windows Server мохитләрен идарә итү һәм челтәр чишелүләрен кертү. Системаларны оптимизацияләү һәм иминлекне яхшырту өчен җаваплылык.',
+                'exp-title-2': 'Система Администраторы',
+                'exp-date-2': '2015 - 2020',
+                'exp-desc-2': 'Windows Server инфраструктурасын саклау, Active Directory көйләү һәм челтәр җиһазларын идарә итү. Ярдәмче күчерү һәм аварияләрдән торгызу чишелүләрен кертү.',
+                'exp-title-3': 'Челтәр Администраторы',
+                'exp-date-3': '2012 - 2015',
+                'exp-desc-3': 'Cisco челтәр инфраструктурасын көйләү һәм саклау, маршрутизация протоколларын кертү һәм челтәр иминлеге һәм эшчәнлеген тәэмин итү.',
+                'certifications-title': 'Сертификатлар',
+                'cert-ccna': 'CCNA',
+                'cert-ccna-desc': 'Cisco Certified Network Associate',
+                'cert-mcse': 'MCSE',
+                'cert-mcse-desc': 'Microsoft Certified Solutions Expert',
+                'cert-ccnp': 'CCNP',
+                'cert-ccnp-desc': 'Cisco Certified Network Professional',
+                'contact-title': 'Контактлар',
+                'contact-info-title': 'Бәйләнешкә керегез',
+                'contact-location': 'Бөтен дөнья буенча мөмкин',
+                'contact-form-title': 'Хәбәр җибәрергә',
+                'form-name': 'Исем',
+                'form-email': 'Email',
+                'form-message': 'Хәбәр',
+                'form-submit': 'Хәбәр җибәрергә',
+                'footer-text': '© 2024 Өлкән Система Администраторы. Барлык хокуклар саклана.'
+            }
+        };
+
+        // Language Management
+        let currentLang = 'en';
+
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ru')) return 'ru';
+            if (browserLang.startsWith('tt')) return 'tt';
+            return 'en';
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Parallax Effect
+        function initParallax() {
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        // Skill Bars Animation
+        function initSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progress = entry.target.getAttribute('data-progress');
+                        entry.target.style.width = progress + '%';
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            skillBars.forEach(bar => observer.observe(bar));
+        }
+
+        // Smooth Scroll
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Contact Form
+        function initContactForm() {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert(translations[currentLang]['form-submit'] + ' - ' + (translations[currentLang]['form-name'] || 'Message sent!'));
+                    form.reset();
+                });
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Language
+            const savedLang = localStorage.getItem('preferredLanguage') || detectLanguage();
+            setLanguage(savedLang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setLanguage(btn.getAttribute('data-lang'));
+                });
+            });
+
+            // Theme
+            initTheme();
+            document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
+
+            // Animations
+            initParallax();
+            initScrollAnimations();
+            initSkillBars();
+            initSmoothScroll();
+            initContactForm();
+        });
+    </script>
+</body>
+</html>
+
