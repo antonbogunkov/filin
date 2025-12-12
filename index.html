@@ -62,6 +62,103 @@
             background: var(--bg-primary);
             transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-image: 
+                /* Base gradient */
+                linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%),
+                /* Circuit board grid */
+                linear-gradient(90deg, var(--primary-color) 1px, transparent 1px),
+                linear-gradient(var(--primary-color) 1px, transparent 1px),
+                /* Hexagonal pattern overlay */
+                radial-gradient(circle at 20% 30%, var(--accent-color) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--primary-color) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--secondary-color) 0%, transparent 70%);
+            background-size: 
+                100% 100%,
+                40px 40px,
+                40px 40px,
+                200px 200px,
+                200px 200px,
+                300px 300px;
+            opacity: 0.06;
+            background-attachment: fixed;
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            z-index: 0;
+            background-image: 
+                /* Circuit lines */
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 48px,
+                    var(--primary-color) 49px,
+                    var(--primary-color) 51px,
+                    transparent 52px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 48px,
+                    var(--accent-color) 49px,
+                    var(--accent-color) 51px,
+                    transparent 52px
+                ),
+                /* Network connection lines */
+                repeating-radial-gradient(
+                    circle at 30% 40%,
+                    transparent 0px,
+                    transparent 19px,
+                    var(--primary-color) 20px,
+                    var(--primary-color) 21px,
+                    transparent 22px
+                ),
+                repeating-radial-gradient(
+                    circle at 70% 60%,
+                    transparent 0px,
+                    transparent 19px,
+                    var(--accent-color) 20px,
+                    var(--accent-color) 21px,
+                    transparent 22px
+                );
+            background-size: 
+                100px 100px,
+                100px 100px,
+                150px 150px,
+                150px 150px;
+            opacity: 0.04;
+            animation: techPatternMove 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        [data-theme="dark"] body::before {
+            opacity: 0.08;
+        }
+        
+        [data-theme="dark"] body::after {
+            opacity: 0.06;
+        }
+        
+        main, header, footer {
+            position: relative;
+            z-index: 1;
         }
         
         /* Parallax Container */
@@ -76,10 +173,109 @@
             left: 0;
             width: 100%;
             height: 120%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            opacity: 0.05;
+            background: 
+                /* Base gradient */
+                linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%),
+                /* Circuit board grid */
+                linear-gradient(90deg, var(--primary-color) 1px, transparent 1px),
+                linear-gradient(var(--primary-color) 1px, transparent 1px),
+                /* Hexagonal pattern overlay */
+                radial-gradient(circle at 20% 30%, var(--accent-color) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--primary-color) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--secondary-color) 0%, transparent 70%);
+            background-size: 
+                100% 100%,
+                40px 40px,
+                40px 40px,
+                200px 200px,
+                200px 200px,
+                300px 300px;
+            opacity: 0.08;
             transform: translateZ(0);
             will-change: transform;
+        }
+        
+        [data-theme="dark"] .parallax-bg {
+            opacity: 0.12;
+        }
+        
+        .parallax-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                /* Circuit lines */
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 48px,
+                    var(--primary-color) 49px,
+                    var(--primary-color) 51px,
+                    transparent 52px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 48px,
+                    var(--accent-color) 49px,
+                    var(--accent-color) 51px,
+                    transparent 52px
+                );
+            background-size: 
+                100px 100px,
+                100px 100px;
+            opacity: 0.08;
+            animation: techPatternMove 20s linear infinite;
+        }
+        
+        .parallax-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                /* Data flow lines */
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    var(--primary-color) 2px,
+                    var(--primary-color) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    var(--accent-color) 2px,
+                    var(--accent-color) 4px
+                );
+            background-size: 
+                60px 60px,
+                60px 60px;
+            opacity: 0.06;
+            animation: techPatternMove 25s linear infinite reverse;
+        }
+        
+        [data-theme="dark"] .parallax-bg::before {
+            opacity: 0.12;
+        }
+        
+        [data-theme="dark"] .parallax-bg::after {
+            opacity: 0.08;
+        }
+        
+        @keyframes techPatternMove {
+            0% {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+            100% {
+                background-position: 100px 100px, 100px 100px, 150px 150px, 150px 150px;
+            }
         }
         
         /* Header */
@@ -933,6 +1129,46 @@
             color: var(--text-secondary);
         }
         
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px var(--shadow);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+        
+        .scroll-to-top:active {
+            transform: translateY(-2px);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -1266,6 +1502,24 @@
             .owl-leg-right {
                 transform: translateX(35px);
             }
+            
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-to-top {
+                width: 48px;
+                height: 48px;
+                bottom: 1.75rem;
+                right: 1.75rem;
+                font-size: 1.4rem;
+            }
         }
         
         /* Animations */
@@ -1574,8 +1828,12 @@
     </main>
 
     <footer>
-        <p data-translate="footer-text">&copy; 2024 Senior System Administrator. All rights reserved.</p>
+        <p data-translate="footer-text">&copy; {YEAR} Senior System Administrator. All rights reserved.</p>
     </footer>
+
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // Translations
@@ -1631,7 +1889,7 @@
                 'form-email': 'Email',
                 'form-message': 'Message',
                 'form-submit': 'Send Message',
-                'footer-text': '© 2024 Senior System Administrator. All rights reserved.'
+                'footer-text': '© {YEAR} Senior System Administrator. All rights reserved.'
             },
             ru: {
                 'logo': 'Филин',
@@ -1684,7 +1942,7 @@
                 'form-email': 'Email',
                 'form-message': 'Сообщение',
                 'form-submit': 'Отправить сообщение',
-                'footer-text': '© 2024 Старший Системный Администратор. Все права защищены.'
+                'footer-text': '© {YEAR} Старший Системный Администратор. Все права защищены.'
             },
             tt: {
                 'logo': 'Филин',
@@ -1737,12 +1995,21 @@
                 'form-email': 'Email',
                 'form-message': 'Хәбәр',
                 'form-submit': 'Хәбәр җибәрергә',
-                'footer-text': '© 2024 Өлкән Система Администраторы. Барлык хокуклар саклана.'
+                'footer-text': '© {YEAR} Өлкән Система Администраторы. Барлык хокуклар саклана.'
             }
         };
 
         // Language Management
         let currentLang = 'en';
+
+        function getYearString() {
+            const currentYear = new Date().getFullYear();
+            if (currentYear === 2025) {
+                return '2025';
+            } else {
+                return `2025-${currentYear}`;
+            }
+        }
 
         function detectLanguage() {
             const browserLang = navigator.language || navigator.userLanguage;
@@ -1755,10 +2022,14 @@
             currentLang = lang;
             document.documentElement.lang = lang;
             
+            const yearString = getYearString();
+            
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+                    let text = translations[lang][key];
+                    text = text.replace('{YEAR}', yearString);
+                    element.textContent = text;
                 }
             });
             
@@ -2007,6 +2278,35 @@
             });
         }
 
+        // Scroll to Top Button
+        function initScrollToTop() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (!scrollButton) return;
+            
+            // Show/hide button based on scroll position
+            function toggleScrollButton() {
+                if (window.scrollY > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            }
+            
+            // Scroll to top on click
+            scrollButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Check scroll position on scroll
+            window.addEventListener('scroll', toggleScrollButton);
+            
+            // Initial check
+            toggleScrollButton();
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Language
@@ -2030,6 +2330,7 @@
             initSmoothScroll();
             initContactForm();
             initOwlInteractions();
+            initScrollToTop();
         });
     </script>
 </body>
