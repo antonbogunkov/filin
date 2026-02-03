@@ -1,6 +1,6 @@
-# Filin Page - Ruslan Khakimov - System Administrator 2 Visit Card
+# Filin Page - Senior System Administrator Visit Card
 
-A professional, single-page website visit card for Ruslan Khakimov, System Administrator 2, featuring an animated Eurasian eagle-owl mascot with network infrastructure elements.
+A professional, single-page website visit card for a senior system administrator, featuring an animated Eurasian eagle-owl mascot with network infrastructure elements.
 
 ## Features
 
@@ -46,5 +46,5 @@ Simply open `index.html` in any modern web browser. No build process or dependen
 
 ## License
 
-© 2025 Ruslan Khakimov. All rights reserved.
+© 2024 Senior System Administrator. All rights reserved.
 
